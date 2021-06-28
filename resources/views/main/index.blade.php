@@ -60,6 +60,29 @@
 <script src="/jquery/jquery.min.js"></script>
 <script>
 
+    var reg = {
+        name: /[^\sA-Z]/gi,
+        lastname: /[^\sA-Z']/gi,
+        country: /[^\sA-Z'()]/gi,
+        phone: /[^\s\d\-+.()]/gi,
+        company: /[^\sA-Z0-9]/gi,
+    };
+
+    $('#name').on('change', function(){
+        $('#name').val($('#name').val().replace(reg.name,''));
+    });
+    $('#lastname').on('change', function(){
+        $('#lastname').val($('#lastname').val().replace(reg.lastname,''));
+    });
+    $('#country').on('change', function(){
+        $('#country').val($('#country').val().replace(reg.country,''));
+    });
+    $('#phone').on('change', function(){
+        $('#phone').val($('#phone').val().replace(reg.phone,''));
+    });
+    $('#company').on('change', function(){
+        $('#company').val($('#company').val().replace(reg.company,''));
+    });
     var page = 1;
     function loadItems(page_number){
         if(page_number == 0){
